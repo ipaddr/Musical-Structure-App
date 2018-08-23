@@ -13,7 +13,7 @@ import org.w3c.dom.Text;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private String song;
+    private Song song;
     private TextView tvSong;
     private Button btnBack;
 
@@ -23,12 +23,12 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         if (getIntent() != null && getIntent().hasExtra("data")){
-            song = getIntent().getStringExtra("data");
+            song = getIntent().getParcelableExtra("data");
         }
 
         tvSong = (TextView)findViewById(R.id.song);
-        if (song != null & !TextUtils.isEmpty(song)){
-            tvSong.setText(song);
+        if (song != null){
+            tvSong.setText(song.songName);
         }
 
         btnBack = (Button)findViewById(R.id.btn_back);
