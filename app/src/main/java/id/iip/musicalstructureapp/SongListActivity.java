@@ -13,12 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class SongListActivity extends AppCompatActivity {
 
     private List<Song> songs;
     private ListView lv;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.song_list_act);
 
         if (savedInstanceState != null && savedInstanceState.containsKey("position")){
             selectedPosition = savedInstanceState.getInt("position");
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 View view = null;
 
                 if (view == null){
-                    view = LayoutInflater.from(MainActivity.this).inflate(android.R.layout.simple_list_item_2, parent, false);
+                    view = LayoutInflater.from(SongListActivity.this).inflate(android.R.layout.simple_list_item_2, parent, false);
                 }
 
                 TextView songName = (TextView)view.findViewById(android.R.id.text1);
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Intent intent = new Intent(SongListActivity.this, SongDetailActivity.class);
                 intent.putExtra("data", songs.get(selectedPosition));
                 startActivity(intent);
             }

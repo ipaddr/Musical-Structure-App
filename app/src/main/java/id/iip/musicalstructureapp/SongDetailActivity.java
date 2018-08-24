@@ -3,15 +3,12 @@ package id.iip.musicalstructureapp;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-public class Main2Activity extends AppCompatActivity {
+public class SongDetailActivity extends AppCompatActivity {
 
     private Song song;
     private TextView tvSong;
@@ -20,7 +17,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.song_detail_act);
 
         if (getIntent() != null && getIntent().hasExtra("data")){
             song = getIntent().getParcelableExtra("data");
